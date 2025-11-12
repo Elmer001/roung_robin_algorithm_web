@@ -152,8 +152,33 @@ async function ejecutarRoundRobin() {
     modoPasoAPaso = false;
 
     while ((colaListos.length > 0 || procesoActual) && simulacionActiva) {
+        guardarEstadoActual();
         
-        await ejecutarPaso();
+        if (!procesoActual && colaListos.length > 0) {
+            procesoActual = colaListos.shift();
+            quantumRestante = quantum;
+            procesoActual.quantumUsado = 0;
+        }
+
+        if (procesoActual) {
+            tiempoActual += 1;
+            procesoActual.tiempoRestante -= 1;
+            procesoActual.quantumUsado += 1;
+            quantumRestante -= 1;
+
+            if (procesoActual.tiempoRestante <= 0) {
+                procesoActual = null;
+                quantumRestante = 0;
+            } else if (quantumRestante <= 0) {
+                colaListos.push(procesoActual);
+                procesoActual = null;
+                quantumRestante = 0;
+            }
+        } else {
+            tiempoActual += 1;
+        }
+
+        actualizarInterfaz(procesoActual);
 
         if (!modoPasoAPaso) {
             await dormir(1000);
@@ -326,8 +351,6 @@ function siguientePaso() {
         if (!modoPasoAPaso) {
             pausarSimulacion();
         }
-
-        ejecutarPaso();
     }
 }
 

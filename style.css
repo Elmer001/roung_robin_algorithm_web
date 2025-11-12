@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.config-panel,
+.simulation-panel {
+    padding: 25px;
+}
+
+.quantum-config {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.quantum-config label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.quantum-config input {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 80px;
+    font-size: 1em;
+}
+
+.help-text {
+    margin-left: 10px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.proceso-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.proceso-item input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.btn-remove {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-add,
+.btn-simular {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.btn-simular {
+    background: #e67e22;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-add:hover,
+.btn-simular:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.simulation-panel {
+    padding-top: 80px;
+    position: relative;
+}
+
+
+.simulation-info {
+    margin-top: 10px;
+}
+
+.time-display,
+.current-process,
+.cola-info {
+    font-size: 1.1em;
+    margin: 8px 0;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+.process-states {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid #e9ecef;
+}
+
+.process-state {
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.process-executing {
+    background: #d4edda;
+    border-left-color: #28a745;
+    color: #155724;
+}
+
+.process-waiting {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+    color: #856404;
+}
+
+.process-finished {
+    background: #f8d7da;
+    border-left-color: #dc3545;
+    color: #721c24;
+}
+
+#texto-explicacion {
+    font-size: 1.1em;
+    line-height: 1.6;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #b3d9ff;
+}
+
+.controls {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 15px 0;
+    margin: -25px -25px 25px -25px;
+    border-bottom: 2px solid #e9ecef;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    min-width: 140px;
+}
+
+.btn-pause {
+    background: #ffc107;
+    color: #000;
+}
+
+.btn-resume {
+    background: #28a745;
+    color: white;
+}
+
+.btn-step {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-restart {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-back {
+    background: #6f42c1 !important;
+    color: white !important;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

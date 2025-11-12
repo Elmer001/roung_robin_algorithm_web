@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cola Circular</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Algoritmo de Cola Circular</h1>
+        </header>
+
+        <section id="config-panel" class="config-panel">
+            <h2>Configuración Inicial</h2>
+
+            <div class="quantum-config">
+                <label for="quantum"><strong>Quantum:</strong></label>
+                <input type="number" id="quantum" value="2" min="1">
+                <span class="help-text">(Tiempo máximo por proceso)</span>
+            </div>
+
+            <div class="procesos-config">
+                <h3>Lista de Procesos</h3>
+                <div class="procesos-list" id="procesos-list">
+
+                </div>
+                <button class="btn-add" onclick="agregarProceso()">➕ Agregar Proceso</button>
+            </div>
+            <button class="btn-simular" onclick="iniciarSimulacion()">▶️ Iniciar Simulación</button>
+        </section>
+
+        <section id="simulation-panel" class="simulation-panel" style="display: none;">
+            <div class="controls">
+                <button class="btn-back" onclick="retrocederPaso()">⏮️ Retroceder</button>
+                <button class="btn-pause" onclick="pausarSimulacion()">⏸️ Pausar</button>
+                <button class="btn-resume" onclick="reanudarSimulacion()">▶️ Continuar</button>
+                <button class="btn-step" onclick="siguientePaso()">⏭️ Siguiente Paso</button>
+                <button class="btn-restart" onclick="reiniciarSimulacion()">⭮ Reiniciar</button>
+            </div>
+
+            <div class="simulation-info">
+                <div class="time-display">
+                    <span>Tiempo Actual: </span>
+                    <span id="tiempo-actual">0</span>
+                </div>
+                <div class="current-process">
+                    <span>Proceso Actual: </span>
+                    <span id="proceso-actual">-</span>
+                </div>
+                <div class="cola-info" id="cola-display">
+                    <strong>COLA DE LISTOS:</strong> []
+                </div>
+            </div>
+            <div class="process-states" id="process-states">
+                <h3>Estado de los Procesos:</h3>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

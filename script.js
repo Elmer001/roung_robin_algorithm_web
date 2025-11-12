@@ -16,7 +16,6 @@ let tiempoActual = 0;
 let simulacionActiva = false;
 let modoPasoAPaso = false;
 let historial = [];
-let pasosEjecutados = [];
 let procesoActual = null;
 let quantumRestante = 0;
 
@@ -30,7 +29,6 @@ function inicializarProcesos() {
     ordenarProcesos();
     colaListos = [...procesos];
     historial = [];
-    pasosEjecutados = [];
     procesoActual = null;
     quantumRestante = 0;
     tiempoActual = 0;
@@ -55,26 +53,10 @@ function guardarEstadoInicial() {
     historial = [estadoInicial];
 }
 
-
-function guardarPaso(proceso, tiempoEjecutado, estado) {
-    pasosEjecutados.push({
-        proceso: proceso ? proceso.nombre : null,
-        tiempoEjecutado: tiempoEjecutado,
-        estado: estado,
-        tiempoActual: tiempoActual,
-        quantumRestante: quantumRestante
-    });
-}
-
-
 function restaurarEstadoAnterior() {
-    if (pasosEjecutados.length === 0) {
+    if (historial.length === 0) {
         return;
     }
-
-
-    const ultimoPaso = pasosEjecutados.pop();
-
 
     if (historial.length > 1) {
 
@@ -117,11 +99,6 @@ function restaurarEstadoAnterior() {
 
 
     actualizarInterfazCompleta();
-}
-
-
-function reconstruirCola() {
-
 }
 
 
@@ -318,7 +295,6 @@ function iniciarSimulacion() {
     ordenarProcesos();
     colaListos = [...procesos];
     historial = [];
-    pasosEjecutados = [];
     procesoActual = null;
     quantumRestante = 0;
 

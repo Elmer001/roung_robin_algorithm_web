@@ -54,16 +54,16 @@ function guardarEstadoInicial() {
 }
 
 function restaurarEstadoAnterior() {
+
     if (historial.length === 0) {
         return;
     }
 
     if (historial.length > 1) {
 
-        historial.pop();
-
         const estadoAnterior = historial[historial.length - 1];
 
+        historial.pop();
 
         tiempoActual = estadoAnterior.tiempoActual;
 
@@ -96,7 +96,6 @@ function restaurarEstadoAnterior() {
         quantumRestante = 0;
         colaListos = [...procesos];
     }
-
 
     actualizarInterfazCompleta();
 }

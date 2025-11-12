@@ -152,6 +152,7 @@ async function ejecutarRoundRobin() {
     modoPasoAPaso = false;
 
     while ((colaListos.length > 0 || procesoActual) && simulacionActiva) {
+        
         await ejecutarPaso();
 
         if (!modoPasoAPaso) {
@@ -201,10 +202,6 @@ async function ejecutarPaso() {
 
         tiempoActual += 1;
     }
-
-
-    guardarEstadoActual();
-
 
     actualizarInterfaz(procesoActual);
 }

@@ -157,7 +157,7 @@ async function ejecutarRoundRobin() {
         if (!modoPasoAPaso) {
             await dormir(1000);
         } else {
-            break;
+            return;
         }
     }
 
@@ -324,8 +324,12 @@ function reanudarSimulacion() {
 
 function siguientePaso() {
     if (colaListos.length > 0 || procesoActual) {
-        simulacionActiva = true;
-        modoPasoAPaso = true;
+        ejecutarPaso();
+
+        if (!modoPasoAPaso) {
+            pausarSimulacion();
+        }
+
         ejecutarPaso();
     }
 }

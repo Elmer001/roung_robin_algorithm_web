@@ -129,6 +129,17 @@ function mostrarConfiguracion() {
     const procesosList = document.getElementById('procesos-list');
     procesosList.innerHTML = '';
 
+
+    const headerDiv = document.createElement('proceso-headers');
+    headerDiv.className = 'proceso-header';
+    headerDiv.innerHTML = `
+      <span>Nombre</span>
+      <span>Llegada</span>
+      <span>Tiempo de ejecución</span>
+    `;
+
+    procesosList.appendChild(headerDiv);
+
     procesos.forEach((proceso, index) => {
         const procesoDiv = document.createElement('div');
         procesoDiv.className = 'proceso-item';
@@ -152,7 +163,7 @@ async function ejecutarRoundRobin() {
 
     while ((colaListos.length > 0 || procesoActual) && simulacionActiva) {
         guardarEstadoActual();
-        
+
         if (!procesoActual && colaListos.length > 0) {
             procesoActual = colaListos.shift();
             quantumRestante = quantum;

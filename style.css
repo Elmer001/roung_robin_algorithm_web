@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: white;
     min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
@@ -16,14 +16,13 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
     overflow: hidden;
 }
 
 header {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: white;
+    background: white;
+    color: black;
     padding: 25px;
     text-align: center;
 }
@@ -139,7 +138,7 @@ header p {
 .time-display,
 .current-process,
 .cola-info {
-    font-size: 1.1em;
+    font-size: 1.5em;
     margin: 8px 0;
     padding: 8px 12px;
     background: white;
@@ -246,4 +245,16 @@ header p {
 .controls button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.proceso-header,
+.proceso-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+}
+
+.proceso-header {
+  font-weight: bold;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
